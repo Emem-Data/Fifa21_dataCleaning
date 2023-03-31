@@ -1,5 +1,5 @@
 # FIFA'21 DATA CLEANING
-![FIFA21](https://user-images.githubusercontent.com/103915142/229073730-ac1907c1-9aee-4d2c-a785-d573f2f755e5.jpg/1080x609)
+![FIFA21](https://user-images.githubusercontent.com/103915142/229073730-ac1907c1-9aee-4d2c-a785-d573f2f755e5.jpg)
 # OUTLINE
 * INTRODUCTION
 * DATA ASSESSMENT
@@ -17,7 +17,7 @@ Through the data-cleaning process, we will discover patterns and insights that c
 
 1.  **Data Exploration:** 
       The FIFA 2021 dataset contains 18980 rows and 77 columns. The columns contain information such as player attributes, team attributes, player positions, and more.       I used the Google Sheet tool to explore and clean the dataset. Many column titles were not appropriate or descriptive enough, we also had extra unused rows. This       and more cases be handled in the data-cleaning process
-2.  **Missing Values:****
+2.  **Missing Values:**
       We identified missing values in two columns of the dataset, including ‘Loan Date End’, and 'Hits’. In total, there were 1,036 missing values in the dataset. We         will need to decide the best way to handle the missing values when cleaning.
 3.  **Data Types:**
       We checked the data types for each column in the dataset and found that some columns were not stored in the correct data type. For example, the ‘Value’, 'Release       Clause', ‘Wage’, and ‘Hits’ columns were stored as an object data type instead of a numeric data type. Some columns had inconsistent data types, like ‘Height’,         and ‘Weight’. We will need to handle this and more similar cases in our data-cleaning process.
