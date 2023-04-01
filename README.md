@@ -139,10 +139,79 @@ __*By documenting these steps in the data assessment phase, we clearly understan
 
 12.   For easy assessment, I moved the "Best Position" column close to the "Positions" column
       > ![16](https://user-images.githubusercontent.com/103915142/229258627-44f2bd93-d632-4d77-b73c-6e512a9d3185.png)
+ 
+13.   > ### CLUB COLUMN
+      inconsistent data was noticed in some of the cell, as we detect cells with a numeric value before the club name, and upon research, names as such (with the number) doesn't exist. So we used the Find and Replace option to replace them.
+      
+      ![clubs1](https://user-images.githubusercontent.com/103915142/229269798-43378aef-810e-4a94-930f-8d60e3574d40.png)
 
-13. ### GOOGLE SHEET BONUS
-      With Google sheet, there are options availabel to assist with cleaning dataset. 
+
+14. ### GOOGLE SHEET BONUS
+      With Google sheet, there are options available to assist with cleaning dataset. 
+      
+      > Select all the data -> Click on Data on the ribbon -> locate Data Clean-up
+           
+     A                                                                                                                     |  B
+     ----------------------------------------------------------------------------------------------------------------------|--------------------------
+      ![Inked12b1](https://user-images.githubusercontent.com/103915142/229267899-1bfccf2a-53b5-48f3-818b-0b63d91a2bb4.jpg) | ![12b2](https://user-images.githubusercontent.com/103915142/229267919-c03e6b4c-9160-4d1f-ab47-0c36291937ae.png)
+      
+     ### A. **Clean-up Suggestions:** 
+     This provides a dialog of possible cleaning that needs to be done. In our case, the clean-up suggested that there are extra whitespaces in all cells of the Club         column. Yep Yep, apparently it wasn't obvious and I didn't suspect it enough to check for it. Thanks to Google sheet emoji for adding these features. 
+     
+      ![Inked12a2](https://user-images.githubusercontent.com/103915142/229268470-118add04-870e-48a8-bc59-8fcc7463b658.jpg)
+
+      > But I have  trust issues, and needed to confirm the suggestions were right, so I went on to create a new column, and used the LEN function to to check the            lenght of the first cell, after counting it myself. I figured it ought to be 12 in length, but the LEN function returned 16. So yes!, the suggestion was right          afterall. 
+      >>I checked the lenght of the updated list in the club column after triming the extra spaces and it returned the correct lenght.
+   
+   
+    Before                                                                                                     |  After Clean-up
+    ----------------------------------------------------------------------------------------------------------------|--------------------------
+    ![12a](https://user-images.githubusercontent.com/103915142/229268672-29b8eb8b-dc8d-4f9e-a118-1f1441fdfc5a.png) | ![12a3](https://user-images.githubusercontent.com/103915142/229268737-99ee9130-b823-40db-91fb-6cb3f78291ea.png)
+
+      
+      ### B. **Remove Duplicates:** 
+      This is very delicate, because in the dataset, it was observed that some players were appeared twice or more BUT, they had unique identifiers, and their contract       and other features weren't the same. So it will be wrong it we removed duplicates across every row. Instead, we will only use the ID column to check if there are       repeated ID's. 
+      > Upon checking, we find out that there are no duplicated ID's, meaning every ID is a unique identifier to every player and their features at that time.
+      
+      
+      ![12c](https://user-images.githubusercontent.com/103915142/229269299-696e8c93-68da-475d-a909-becdaf957320.png)
+      
+      ![12c2](https://user-images.githubusercontent.com/103915142/229269308-107e8cf2-b284-4b0e-b037-9db1e848de90.png)
+      
+      ### C. Trim Whitespace
+      >Select all data to trim extra whitespaces all through.
+      
+      ![12b](https://user-images.githubusercontent.com/103915142/229269839-99ec9396-0895-4c43-9457-238c1c7f4e90.png)
+
+__**The ID contains numeric values of different lenght, but we won't be doing any cleaning here because every ID corresponds to the id on the player's url**__
+
+
+15. ### CONTRACT COLUMN
+
+16. ### OUTLIERS
+      > 1. The Age column has an outlier
+      >> ![Inked17a](https://user-images.githubusercontent.com/103915142/229270289-2130e4c1-ce63-4af6-97b5-1bc013442afa.jpg)
+      
+      > We see that there's a player whose age is 53 which is a significant distinct age in the data. It is expected that players ought to retire by around the age of        35-40.  With this findings, I proceeded to research the ages of player above the age of 30 years. 
+      >>According to a blog site, the age is correct and there are few players above the age of 35 still on the field. I also discovered that the oldest player is 60         years as at 2023. So the outlier stays because it is correct and needed in our analysis.
+      __https://sportsbrief.com/facts/top-listicles/15672-ranking-top-12-oldest-playing-footballers-playing/#:~:text=Football%20is%20quite%20an%20energy,players%20usually%20struggle%20with%20retirement.__
+      
+      >2. Overall Analysis and Best Overall
+      The column isn't in it right format, as it ought to be in percentage form. So I created a new column, to do the conversions and also formatted it to %
+      >>![17c](https://user-images.githubusercontent.com/103915142/229271025-2bb7dc75-cbe0-4649-a776-7f7e9f52c700.png)
+     
+     Graphical Representation for Overall Analysis
+      
+       ![Inked17d](https://user-images.githubusercontent.com/103915142/229271145-83973f4b-6726-4773-a2fd-abf27e244c52.jpg)
        
+      3. Player Potential
+      Like we did to overall analysis, we would convert the player potential column to a percentage format.
+      
+      Graphica Representation of the Player potential column.
+      
+      ![17d2](https://user-images.githubusercontent.com/103915142/229271601-bce386ec-0c0c-41c7-ad2d-43c7915ba7b3.png)
+      > the column is rightly skewed. which means we have more data points to the above 69%. But the average percentage by frequency of the player potential column is        69%.
+      
       
 
 
