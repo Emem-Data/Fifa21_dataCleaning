@@ -130,12 +130,18 @@ __*By documenting these steps in the data assessment phase, we clearly understan
        > **SYNTAX:** ![10c](https://user-images.githubusercontent.com/103915142/229257711-009b8cea-ac74-491c-a9aa-2007f3bab52b.png)
 
 11.   > ### JOINED COLUMN
-       Select the Joined column -> Format -> Number -> Date
-      
+      Select the Joined column -> Format -> Number -> Date
+    
+    
+       BEFORE                                                                                                    |  AFTER
+       ----------------------------------------------------------------------------------------------------------------|--------------------------
+       ![14a](https://user-images.githubusercontent.com/103915142/229258040-4ce58092-1d41-476d-93cf-0452e748722f.png) | ![14a2](https://user-images.githubusercontent.com/103915142/229258467-edce7f03-e9ef-4f87-957f-643edb8e77e6.png)
 
-            BEFORE                                                                                                    |  AFTER
-      ----------------------------------------------------------------------------------------------------------------|--------------------------
-       ![14a](https://user-images.githubusercontent.com/103915142/229258040-4ce58092-1d41-476d-93cf-0452e748722f.png) | ![10c2](https://user-images.githubusercontent.com/103915142/229257160-c00e9a08-760b-4764-93d7-f8b1a3449bc8.png)
+12.   For easy assessment, I moved the "Best Position" column close to the "Positions" column
+      > ![16](https://user-images.githubusercontent.com/103915142/229258627-44f2bd93-d632-4d77-b73c-6e512a9d3185.png)
+
+13. ### GOOGLE SHEET BONUS
+      With Google sheet, there are options availabel to assist with cleaning dataset. 
        
       
 
