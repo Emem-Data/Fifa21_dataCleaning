@@ -1,6 +1,7 @@
 # FIFA'21 DATA CLEANING
 
-![FIFA21](https://user-images.githubusercontent.com/103915142/229223184-997c0ec3-22b9-4084-834f-5f1185f5f568.jpg)
+![fifa_21_header](https://user-images.githubusercontent.com/103915142/229278329-921fa889-d24a-4791-807d-00c3e9653de2.jpg)
+
 
 # OUTLINE
 * INTRODUCTION
