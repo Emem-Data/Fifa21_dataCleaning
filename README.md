@@ -212,29 +212,41 @@ __**The ID contains numeric values of different lenght, but we won't be doing an
       
 
 16. ### OUTLIERS
-      > 1. The Age column has an outlier
-      >> ![Inked17a](https://user-images.githubusercontent.com/103915142/229270289-2130e4c1-ce63-4af6-97b5-1bc013442afa.jpg)
+      > 1. #### **The Age column has an outlier**
+      
+      ![Inked17a](https://user-images.githubusercontent.com/103915142/229270289-2130e4c1-ce63-4af6-97b5-1bc013442afa.jpg)
       
       > We see that there's a player whose age is 53 which is a significant distinct age in the data. It is expected that players ought to retire by around the age of        35-40.  With this findings, I proceeded to research the ages of player above the age of 30 years. 
       >>According to a blog site, the age is correct and there are few players above the age of 35 still on the field. I also discovered that the oldest player is 60         years as at 2023. So the outlier stays because it is correct and needed in our analysis.
       __https://sportsbrief.com/facts/top-listicles/15672-ranking-top-12-oldest-playing-footballers-playing/#:~:text=Football%20is%20quite%20an%20energy,players%20usually%20struggle%20with%20retirement.__
       
-      >2. Overall Analysis and Best Overall
+      >2. #### **Overall Analysis and Best Overall**
+      
       The column isn't in it right format, as it ought to be in percentage form. So I created a new column, to do the conversions and also formatted it to %
-      >>![17c](https://user-images.githubusercontent.com/103915142/229271025-2bb7dc75-cbe0-4649-a776-7f7e9f52c700.png)
+      
+     ![17c](https://user-images.githubusercontent.com/103915142/229271025-2bb7dc75-cbe0-4649-a776-7f7e9f52c700.png)
      
      Graphical Representation for Overall Analysis
       
-       ![Inked17d](https://user-images.githubusercontent.com/103915142/229271145-83973f4b-6726-4773-a2fd-abf27e244c52.jpg)
+     ![Inked17d](https://user-images.githubusercontent.com/103915142/229271145-83973f4b-6726-4773-a2fd-abf27e244c52.jpg)
        
-      3. Player Potential
+     >3. #### **Player Potential**
+     
       Like we did to overall analysis, we would convert the player potential column to a percentage format.
       
       Graphica Representation of the Player potential column.
       
       ![17d2](https://user-images.githubusercontent.com/103915142/229271601-bce386ec-0c0c-41c7-ad2d-43c7915ba7b3.png)
-      > the column is rightly skewed. which means we have more data points to the above 69%. But the average percentage by frequency of the player potential column is        69%.
       
+      > the column is rightly skewed. which means we have more data points to the above 69%. But the average percentage by frequency of the player potential column is        69%.
+  
+ ## CONCLUSION
+ In conclusion, the data cleaning process was a crucial step in preparing our dataset for analysis. Through the use of various techniques such as removing duplicates, handling missing values, standardizing data formats, and managing outliers, we were able to improve the quality of our data and ensure that our analysis results are accurate and reliable. We have also documented the steps taken in this process, which will allow us to replicate this process in the future and maintain data consistency. With these clean and standardized data, we are confident that our analysis will yield meaningful insights and inform our decision-making process going forward.
+ 
+##### CREDITS: Really grateful to Promise for hosting this challenge. It was "challenging" but we go harder.
+###### __**Source of Data: Kaggle**__.
+###### Next is to Analyse, visualize, and build a dashboard.
+ 
       
 
 
