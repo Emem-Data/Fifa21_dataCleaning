@@ -76,11 +76,15 @@ __*By documenting these steps in the data assessment phase, we clearly understan
 7.    > ### HEIGHT AND WEIGHT COLUMNS
       a.	**The height** column should be strictly in centimeter, but we have two different units for heights (ft and cm). 
                   i. We start cleaning by filtering out the values in cm, so we are left with values in ft. 
-                  ii. Create a new column and use the formular below to convert the ft&inch values to cm
+                  ii. Create a new column and use the formular below to convert the ft&inch values to pure inches
             
-            > =LEFT(O795, FIND("'", O795)-1)*12+ABS(SUBSTITUTE(MID(O795,FIND("'", O795)+1, LEN(O795)), """", ""))
+            > =LEFT(M795, FIND("'", M795)-1)*12+ABS(SUBSTITUTE(MID(M795,FIND("'", M795)+1, LEN(M795)), """", ""))
             
-      > ![Inkedheight_conversion](https://user-images.githubusercontent.com/103915142/229244209-f4952507-d8ef-4d73-9d4e-42f03da56396.jpg)
+      > ![height_conversion](https://user-images.githubusercontent.com/103915142/229292110-461f70a0-1efa-466f-a117-91bb4f655f21.png)
+                  
+                  iii. Use the CONVERT function to convert from inches to cm and reduce the decimal point to 0
+                  
+      > ![conversion](https://user-images.githubusercontent.com/103915142/229291592-c894619b-5371-4dc0-bbe3-dda0606b96a2.png)
       
       b.    **The weight** column ought to measured in lbs only, but we can see values with kg and lbs units. To correct this, we have to
                   i. We would filter by condition, values containing "kg"
@@ -204,13 +208,9 @@ __**The ID contains numeric values of different lenght, but we won't be doing an
       
       > Finaly, we would create a new column and name it "Agreement", which will take option "Contract", "Free", and "On Loan". And Delete the loan_date column
       
-      > ![contract_1](https://user-images.githubusercontent.com/103915142/229277090-01124e79-f3cd-4a3f-967a-48a094698bef.png)
-      >> ![contract_2](https://user-images.githubusercontent.com/103915142/229277104-6cbb91fc-1862-4878-b6db-9958e7042069.png)
+      > ![contract_1](https://user-images.githubusercontent.com/103915142/229288861-dbbfc5eb-4ecf-4534-b7c3-8125c973debe.png)
+      >> ![contract_2](https://user-images.githubusercontent.com/103915142/229288871-bb72a66d-51ff-4377-9436-3599733a2d52.png)
       >>> ![contract_3](https://user-images.githubusercontent.com/103915142/229277122-0a8e19c0-f618-4396-aff0-76c720b50414.png)
-
-      
-      
-      
 
 16. ### OUTLIERS
       > 1. #### **The Age column has an outlier**
@@ -240,6 +240,12 @@ __**The ID contains numeric values of different lenght, but we won't be doing an
       ![17d2](https://user-images.githubusercontent.com/103915142/229271601-bce386ec-0c0c-41c7-ad2d-43c7915ba7b3.png)
       
       > the column is rightly skewed. which means we have more data points to the above 69%. But the average percentage by frequency of the player potential column is        69%.
+ ## FINAL TOUCH
+      Delete unnecessary columns : PhotoUrl, PlayerUrl, Position, Loan_end_date, Contract
+      Added Columns : Contract_start, Contract_end, Agreement
+      Original number of Rows and Columns before cleaning (18980, 77)
+      Final number of Rows and Columns after cleaning (18980, 75)
+ 
   
  ## CONCLUSION
  In conclusion, the data cleaning process was a crucial step in preparing our dataset for analysis. Through the use of various techniques such as removing duplicates, handling missing values, standardizing data formats, and managing outliers, we were able to improve the quality of our data and ensure that our analysis results are accurate and reliable. We have also documented the steps taken in this process, which will allow us to replicate this process in the future and maintain data consistency. With these clean and standardized data, we are confident that our analysis will yield meaningful insights and inform our decision-making process going forward.
