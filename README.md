@@ -250,9 +250,10 @@ __**The ID contains numeric values of different lenght, but we won't be doing an
  ## CONCLUSION
  In conclusion, the data cleaning process was a crucial step in preparing our dataset for analysis. Through the use of various techniques such as removing duplicates, handling missing values, standardizing data formats, and managing outliers, we were able to improve the quality of our data and ensure that our analysis results are accurate and reliable. We have also documented the steps taken in this process, which will allow us to replicate this process in the future and maintain data consistency. With these clean and standardized data, we are confident that our analysis will yield meaningful insights and inform our decision-making process going forward.
  
-##### CREDITS: Really grateful to Promise for hosting this challenge. It was "challenging" but we go harder.
-###### __**Source of Data: Kaggle**__.
-###### Next is to Analyse, visualize, and build a dashboard.
+##### CREDITS: Really grateful to Promise Chinonso [@linkedin.com/in/promisechinonso] for hosting this challenge. It was "challenging" but we go harder.
+__**Source of Data: Kaggle**__.
+
+Next is to Analyse, visualize, and build a dashboard.
  
       
 
