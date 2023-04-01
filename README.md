@@ -187,6 +187,29 @@ __**The ID contains numeric values of different lenght, but we won't be doing an
 
 
 15. ### CONTRACT COLUMN
+      The Contract column has 3 different value types: "Contract year intervals", "Free contract", and "Contracts on loan".
+      
+      > **Contract year intervals
+      We notice that there is a special character "~" in between years of contract.** 
+      * We use the split-text-to-column option and a delimeter "~" to split the years into "Contract_Start" and "Contract_end" columns. After which, we use the find          and replace option to eliminate the special character. 
+      
+      > **Next step, we can see that some players were on free contract and they had no club and no wage. But we notice that in the contract_start column we created             earlier, the column year corresponds to the year in the "Joined" column.** 
+       * So it is safe to replace every cell with a start_date of "Free" to the year the player joined. But the contract_end date will be "N/A" since there's no                end_date
+            
+      >  **In our next step, we noticed that cells containing text like "On loan" had a date attached with it. So we split the text, and extract the date.** 
+      * Additionally, we change the format of the date and compare with the dates in the Joined and Loan_end column. We notice that the dates initially attached to "On           loan" is exactly the same with the dates on the Loan_end column. So here's the plan.
+            * Replace the values of the text containing "On loan" in the contract_start column with the corresponding year in the "Joined" column. 
+            * Extract the Year from the text containing "On loan", as it is the same with the loan_end_date, we would use the Year extracted as the Year in the                       "Contract_end" column
+      
+      > Finaly, we would create a new column and name it "Agreement", which will take option "Contract", "Free", and "On Loan". And Delete the loan_date column
+      
+      > ![contract_1](https://user-images.githubusercontent.com/103915142/229277090-01124e79-f3cd-4a3f-967a-48a094698bef.png)
+      >> ![contract_2](https://user-images.githubusercontent.com/103915142/229277104-6cbb91fc-1862-4878-b6db-9958e7042069.png)
+      >>> ![contract_3](https://user-images.githubusercontent.com/103915142/229277122-0a8e19c0-f618-4396-aff0-76c720b50414.png)
+
+      
+      
+      
 
 16. ### OUTLIERS
       > 1. The Age column has an outlier
