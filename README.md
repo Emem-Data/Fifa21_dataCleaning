@@ -1,7 +1,6 @@
 # FIFA'21 DATA CLEANING
 
-![FIFA_21](https://user-images.githubusercontent.com/103915142/229081413-659b6549-2f4d-4dc6-aa02-159b7b841dc1.png)
-
+![FIFA21](https://user-images.githubusercontent.com/103915142/229223184-997c0ec3-22b9-4084-834f-5f1185f5f568.jpg)
 
 # OUTLINE
 * INTRODUCTION
@@ -40,6 +39,113 @@ Through the data-cleaning process, we will discover patterns and insights that c
 7. **Data Consistency:**
       We checked for inconsistencies in the data, such as inconsistent spelling, special characters or formatting. For example, we found that some player names were         spelt differently from the information in the ‘player url’ column. We also found that some columns contained special characters like a star to denote “ratings”.       The formatting of some columns like ‘Overall analysis’, and ‘Best Overall’ were wrong, as they ought to be in percentages.
    
+
+__*By documenting these steps in the data assessment phase, we clearly understand the issues with the dataset and can proceed to the next phase of the data cleaning process.*__
+
+## DATA CLEANING
+
+1.	The first step that was taken in this phase was to import the dataset. 
+      > In Google sheet, you import data by going to File >> Import >> Upload Data
+      >> ![Inked1a](https://user-images.githubusercontent.com/103915142/229225496-b20261d2-6860-454c-a1c4-221bbbe2e5d3.jpg)
+
+2.	After loading the dataset, my next task was to change the title of the sheet to make the sheet descriptive.
+      > ![Inked1](https://user-images.githubusercontent.com/103915142/229225837-fb4612a0-b814-490f-ac5a-afda44e3617f.jpg)
+
+3.    I explored the dataset and realized that there are 18,980 rows and 77 columns. I also saw that we had two empty rows and columns and proceeded to delete them. 
+      > ![3](https://user-images.githubusercontent.com/103915142/229226637-ba7994a2-d366-4e87-8576-70b003ba2c8a.png)
+
+4.    I also checked the name convention of every attribute name, changed column names that weren’t descriptive and made the naming format consistent.
+      > ![1c](https://user-images.githubusercontent.com/103915142/229227442-fe69a0f4-9450-4f66-8eda-eb4247d8bd55.png)
+      
+5.    To make my table look beautiful, I added a background colour to the header, bolded the text and froze the header row. I also added a borderline to the cells.
+      Here is how it looks.
+       Freeze Row                                                                                                        |  Style
+      -------------------------------------------------------------------------------------------------------------------|-------------------------
+      ![Inked2a](https://user-images.githubusercontent.com/103915142/229228376-e3720671-65fd-4585-b87e-d20ff5cd49e1.jpg) |  ![5a](https://user-images.githubusercontent.com/103915142/229229165-8e589188-5add-4f86-92dc-d6a12a56ac10.png)
+
+6.    In the Player_Url, I observe that each link contains the actual names of the players while the Long_Name column has special characters on many players’ names.         Hence we use the SPLIT TO TEXT option to get the correct names for the Long_name. We use the delimiter “/”
+      > Select the interested column, go to data and select "Split Text to Column"
+      >> ![8a](https://user-images.githubusercontent.com/103915142/229231971-5ac97d0c-e425-4360-bd52-a096a2cd5dd8.png)
+      
+      We then copy the correct name and use the paste special option to paste the values in the Long_Name column. Finally, we notice that the names are in small             letters, so we use the PROPER function to fix it.
+        Text Transformation                                                                                          |  Paste Special Values
+      ---------------------------------------------------------------------------------------------------------------|-------------------------
+      ![8a3](https://user-images.githubusercontent.com/103915142/229232805-44924dc5-135a-43d7-b456-f7cc50287377.png) | ![8a2](https://user-images.githubusercontent.com/103915142/229233242-b1f674df-7d55-4c2a-956a-76b64a647373.png)
+
+7.    > ### HEIGHT AND WEIGHT COLUMNS
+      a.	**The height** column should be strictly in centimeter, but we have two different units for heights (ft and cm). 
+                  i. We start cleaning by filtering out the values in cm, so we are left with values in ft. 
+                  ii. Create a new column and use the formular below to convert the ft&inch values to cm
+            
+            > =LEFT(O795, FIND("'", O795)-1)*12+ABS(SUBSTITUTE(MID(O795,FIND("'", O795)+1, LEN(O795)), """", ""))
+            
+      > ![Inkedheight_conversion](https://user-images.githubusercontent.com/103915142/229244209-f4952507-d8ef-4d73-9d4e-42f03da56396.jpg)
+      
+      b.    **The weight** column ought to measured in lbs only, but we can see values with kg and lbs units. To correct this, we have to
+                  i. We would filter by condition, values containing "kg"
+                  ii. Then use the find and replace option to remove "kg" from the affected cells
+                  iii. Create a new column and use the CONVERT function to convert kg to lbm.
+                  
+     
+      Filter By Condition                                                                                                     |  Result
+      ------------------------------------------------------------------------------------------------------------------------ |-------------------------
+      ![Inkedweight_a](https://user-images.githubusercontent.com/103915142/229247273-e327805b-1ccc-46d2-8a56-746bb32eba19.jpg) | ![weight_b](https://user-images.githubusercontent.com/103915142/229246278-968e67ca-de52-4dc2-be87-fa123d8a388e.png)
+
+      __*Don't forget to adjust the decimal place to 0.*__
+            
+8.    > ### VALUE, RELEASE CLAUSE, and WAGE
+      These columns are player's worth in dollars but we see that the column is in Test format with the wrong formatting. Hence, our job here is to change the euro           sign to dollars, convert "K" and "M" to Thousand and Million numerically.
+      
+      BEFORE
+       > ![9d](https://user-images.githubusercontent.com/103915142/229251688-142dcf84-c4d7-4ebe-bc9d-78f29cae773d.png)
+
+      Solution for Value
+      > ![Inked9d2](https://user-images.githubusercontent.com/103915142/229252188-3f4966ad-b542-4cb7-b306-7e4134c5432c.jpg)
+      
+      But our solution came with a problem, some values do not contain "M" and "K, which was used in our formular to change the format. This led to a #VALUE ERROR
+      > ![9d3](https://user-images.githubusercontent.com/103915142/229254627-8d10a0b2-3e6e-4674-a715-c972734f09cb.png)
+
+      The Correct Solution
+      We use the IFERROR statement to catch and handle errors in the formular.
+      > ![9d4](https://user-images.githubusercontent.com/103915142/229254736-f7b5acc0-3155-4bd5-8a99-c796666d2e51.png)
+      
+9.    > ### WEAK FOOT, SKILL MOVES, AND INJURY RATING
+      we observe that there are special characters in this columns, so we proceed to use the find and replace option to clean the columns.
+      > ![10a2](https://user-images.githubusercontent.com/103915142/229255834-aae5bc61-b4a2-4edf-9e6d-6dec3bdd84d6.png)
+
+10.   > ### HIT
+      a.    We observed that there aree blank cells in the hit column. I assumed that the blank cells means that the players had no viewers on the website. 
+      An efficent way to go about this cleaning, is to filter the Hit column to display only blank cells, and autofill the cells with zero.
+
+      Blank Cells                                                                                                     |  Replacing with Zero
+      ---------------------------------------------------------------------------------------------------------------|--------------------------
+      ![10b1](https://user-images.githubusercontent.com/103915142/229256387-62ce0a23-622c-432f-9bca-84dd28975d92.png) | ![10b2](https://user-images.githubusercontent.com/103915142/229256400-8640e9e6-334d-4252-9bf2-ae8118ed5275.png)
+      
+      b.    We also see some inconsistency in the data format of the Hit column. We fix it like we did with Value column
+     
+      BEFORE                                                                                                          |  AFTER
+      ----------------------------------------------------------------------------------------------------------------|--------------------------
+       ![10b](https://user-images.githubusercontent.com/103915142/229257130-17182523-dc93-4ad3-a2c9-a14ada181035.png) | ![10c2](https://user-images.githubusercontent.com/103915142/229257160-c00e9a08-760b-4764-93d7-f8b1a3449bc8.png)
+       
+       > **SYNTAX:** ![10c](https://user-images.githubusercontent.com/103915142/229257711-009b8cea-ac74-491c-a9aa-2007f3bab52b.png)
+
+11.   > ### JOINED COLUMN
+       Select the Joined column -> Format -> Number -> Date
+      
+
+            BEFORE                                                                                                    |  AFTER
+      ----------------------------------------------------------------------------------------------------------------|--------------------------
+       ![14a](https://user-images.githubusercontent.com/103915142/229258040-4ce58092-1d41-476d-93cf-0452e748722f.png) | ![10c2](https://user-images.githubusercontent.com/103915142/229257160-c00e9a08-760b-4764-93d7-f8b1a3449bc8.png)
+       
+      
+
+
+
+
+
+
+
+
 
 
 
